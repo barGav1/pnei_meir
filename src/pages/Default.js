@@ -23,7 +23,7 @@ function MediaGallery() {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="relative isolate px-6 pt-24 lg:px-8">
+      <div className="relative isolate px-4 sm:px-6 pt-20 sm:pt-24 lg:px-8">
         <Menu />
         
         {/* Background decoration */}
@@ -41,23 +41,23 @@ function MediaGallery() {
         </div>
 
         {/* Main Content */}
-        <div className="mx-auto max-w-7xl py-32 sm:py-40" dir="rtl">
+        <div className="mx-auto max-w-7xl py-16 sm:py-24 lg:py-32" dir="rtl">
           {/* Page Title */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl">
+          <div className="text-center mb-12 sm:mb-16 px-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-800">
               ברוכים הבאים למוסדות פני מאיר
             </h1>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600">
               צפו בסרטונים ותמונות ממוסדות פני מאיר
             </p>
           </div>
 
           {/* Videos Section */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+          <div className="mb-16 sm:mb-20">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8 text-center px-4">
               סרטונים
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {videos.map((video, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                   <div className="aspect-video">
@@ -72,8 +72,8 @@ function MediaGallery() {
                       className="w-full h-full"
                     ></iframe>
                   </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-gray-800">{video.title}</h3>
+                  <div className="p-3 sm:p-4">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800">{video.title}</h3>
                   </div>
                 </div>
               ))}
@@ -81,20 +81,20 @@ function MediaGallery() {
           </div>
 
           {/* Photos Section */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+          <div className="mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8 text-center px-4">
               תמונות
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {photos.map((photo, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                   <img
                     src={photo.url}
                     alt={photo.title}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-48 sm:h-56 md:h-64 object-cover"
                   />
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-gray-800">{photo.title}</h3>
+                  <div className="p-3 sm:p-4">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800">{photo.title}</h3>
                   </div>
                 </div>
               ))}
