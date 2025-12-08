@@ -1,25 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Menu from "../components/Menu";
 import "../styles/Home.css";
-import img1 from "../stuff/meir1.jpg" 
-import img2 from "../stuff/meir2.jpg" 
-import tora from "../stuff/tora.jpg" 
 
-
-function MediaGallery() {
-  // Replace these with your actual YouTube video IDs
-  const videos = [
-    { id: "-e0dtIjR5_k", title: "סרטון 1" },
-    { id: "xsv82WrNa2M", title: "סרטון 2" },
-    { id: "qTCT6F339JA", title: "סרטון 3" }
-  ];
-
-  // Replace these with your actual image URLs
-  const photos = [
-    { url: img1, title: "תמונה 1" },
-    { url: img2, title: "תמונה 2" },
-    { url: tora, title: "תמונה 3" }
-  ];
+function VideoViewer() {
+  const [videoId] = useState("-e0dtIjR5_k");
 
   return (
     <div className="bg-white min-h-screen">
@@ -41,63 +25,27 @@ function MediaGallery() {
         </div>
 
         {/* Main Content */}
-        <div className="mx-auto max-w-7xl py-16 sm:py-24 lg:py-32" dir="rtl">
+        <div className="mx-auto max-w-5xl py-16 sm:py-24 lg:py-32" dir="rtl">
           {/* Page Title */}
           <div className="text-center mb-12 sm:mb-16 px-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-800">
               ברוכים הבאים למוסדות פני מאיר
             </h1>
-            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600">
-              צפו בסרטונים ותמונות ממוסדות פני מאיר
-            </p>
           </div>
 
-          {/* Videos Section */}
-          <div className="mb-16 sm:mb-20">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8 text-center px-4">
-              סרטונים
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {videos.map((video, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                  <div className="aspect-video">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={`https://www.youtube.com/embed/${video.id}`}
-                      title={video.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
-                  </div>
-                  <div className="p-3 sm:p-4">
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-800">{video.title}</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Photos Section */}
-          <div className="mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8 text-center px-4">
-              תמונות
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {photos.map((photo, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                  <img
-                    src={photo.url}
-                    alt={photo.title}
-                    className="w-full h-48 sm:h-56 md:h-64 object-cover"
-                  />
-                  <div className="p-3 sm:p-4">
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-800">{photo.title}</h3>
-                  </div>
-                </div>
-              ))}
+          {/* Single Video Display */}
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div className="aspect-video">
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title="סרטון פני מאיר"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -120,4 +68,4 @@ function MediaGallery() {
   );
 }
 
-export default MediaGallery;
+export default VideoViewer;
