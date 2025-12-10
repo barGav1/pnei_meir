@@ -1,18 +1,52 @@
-import React from "react";
+import React, { useState } from 'react';
 import Menu from "../components/Menu";
 import "../styles/Home.css";
 
 function VideoViewer() {
   const videos = [
-    "F29BWfDCKGE",
-    "uNCqe8Vh0HQ",
-    "_JBoPl9_4ws",
-    "dCjtV6o5wXk",
-    "9QjTfO9hmO8",
-    "f8cPSdcBO4c",
-    "0k0Y228qGas",
-    "TAbhqm0QhxU",
+    { 
+      id: "F29BWfDCKGE",
+      title: "דבר מנהל המוסד",
+      subtitle: "חזון ההובלה חינוכית במוסדות"
+    },
+    { 
+      id: "uNCqe8Vh0HQ",
+      title: "שיעור מלאכה יצירתית",
+      subtitle: "פיתוח כישורים ידניים ויצירתיות "
+    },
+    { 
+      id: "_JBoPl9_4ws",
+      title: "לימודי מדעים מרתקים",
+      subtitle: "חקר והתנסות בעולם המדע"
+    },
+    { 
+      id: "dCjtV6o5wXk",
+      title: "שיעור חשבון מעמיק",
+      subtitle: "מתמטיקה מעשית וחשיבה לוגית"
+    },
+    { 
+      id: "9QjTfO9hmO8",
+      title: "הפסקה בחצר המוסד",
+      subtitle: "משחק חברתי ופעילות במרחב"
+    },
+    { 
+      id: "f8cPSdcBO4c",
+      title: "שיעור אנגלית מתקדם",
+      subtitle: "שפה ותקשורת בינלאומית מעשירה"
+    },
+    { 
+      id: "0k0Y228qGas",
+      title: "לימוד גמרא עמוק",
+      subtitle: "חכמת התלמוד והעמקה בהלכה"
+    },
+    { 
+      id: "TAbhqm0QhxU",
+      title: "הגיל הרך שלנו",
+      subtitle: "חינוך מוקדם ופיתוח יכולות יסוד"
+    }
   ];
+  
+  const [expandedVideo, setExpandedVideo] = useState(null);
 
   return (
     <div className="bg-white min-h-screen">
@@ -36,28 +70,76 @@ function VideoViewer() {
         </div>
 
         {/* Main Content */}
-        <div className="mx-auto max-w-full py-20 sm:py-24 lg:py-32 px-2 sm:px-4 lg:px-10" dir="rtl">
-          <div className="text-center mb-12 sm:mb-16 px-4">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-800">
-              ברוכים הבאים למוסדות פני מאיר
+        <div className="max-w-7xl mx-auto">
+          {/* Hero Section - Hebrew Content */}
+          <div className="text-center mb-16 px-4" dir="rtl">
+            <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-4">
+              מוסדות פני מאיר
             </h1>
+            <h2 className="text-2xl sm:text-3xl text-blue-600 font-semibold mb-6">
+              חינוך תורני איכותי לדור העתיד
+            </h2>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+             מוסדות פני מאיר משלבים חינוך תורני עמוק עם גישה חינוכית מתקדמת.
+             <br/>
+              אנו מפתחים כל תלמיד לפי כישוריו הייחודיים תוך שמירה על ערכי התורה והמסורת, ומטפחים אווירה של מצוינות וכבוד הדדי.
+              <br/>
+              אנו מזמינים אותכם לצפות בתכנים מחיי היום יום במוסדותינו.
+            </p>
           </div>
 
-          {/* ---- Eight Videos Grid ---- */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-16">
-            {videos.map((id, idx) => (
+          {/* Video Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8" dir="rtl">
+            {videos.map((video, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl shadow-2xl overflow-hidden"
+                className="relative group cursor-pointer"
               >
-                <div className="aspect-video">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${id}`}
-                    title={`Video ${idx + 1}`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  ></iframe>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
+                <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-blue-200 transition-all">
+                  {expandedVideo === idx ? (
+                    <div 
+                      className="w-full"
+                      onClick={() => setExpandedVideo(null)}
+                    >
+                      <div className="aspect-video">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
+                          title={video.title}
+                          className="w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </div>
+                      <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-white">
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">{video.title}</h3>
+                        <p className="text-sm sm:text-base text-gray-600">{video.subtitle}</p>
+                        <p className="text-xs text-blue-600 mt-2">לחץ לסגירה</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div onClick={() => setExpandedVideo(idx)}>
+                      <div className="aspect-video relative overflow-hidden">
+                        <img
+                          src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                          alt={video.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="bg-white rounded-full p-5 shadow-xl group-hover:scale-110 transition-transform">
+                            <svg className="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-white">
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">{video.title}</h3>
+                        <p className="text-sm sm:text-base text-gray-600">{video.subtitle}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
