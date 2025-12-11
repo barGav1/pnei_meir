@@ -10,8 +10,13 @@ function VideoViewer() {
       subtitle: "חזון ההובלה חינוכית במוסדות"
     },
     { 
+      id: "TAbhqm0QhxU",
+      title: "הגיל הרך שלנו",
+      subtitle: "חינוך מוקדם ופיתוח יכולות יסוד"
+    },
+    { 
       id: "uNCqe8Vh0HQ",
-      title: "שיעור מלאכה יצירתית",
+      title: "שיעורי אומנות ויצירה",
       subtitle: "פיתוח כישורים ידניים ויצירתיות "
     },
     { 
@@ -21,28 +26,23 @@ function VideoViewer() {
     },
     { 
       id: "dCjtV6o5wXk",
-      title: "שיעור חשבון מעמיק",
+      title: "שיעורי חשבון מעמיקים",
       subtitle: "מתמטיקה מעשית וחשיבה לוגית"
     },
     { 
       id: "9QjTfO9hmO8",
       title: "הפסקה בחצר המוסד",
-      subtitle: "משחק חברתי ופעילות במרחב"
+      subtitle: "משחקי חברה ופעילות במרחב"
     },
     { 
       id: "f8cPSdcBO4c",
-      title: "שיעור אנגלית מתקדם",
+      title: "שיעורי אנגלית מתקדמים",
       subtitle: "שפה ותקשורת בינלאומית מעשירה"
     },
     { 
       id: "0k0Y228qGas",
-      title: "לימוד גמרא עמוק",
+      title: "לימוד גמרא בעמקות",
       subtitle: "חכמת התלמוד והעמקה בהלכה"
-    },
-    { 
-      id: "TAbhqm0QhxU",
-      title: "הגיל הרך שלנו",
-      subtitle: "חינוך מוקדם ופיתוח יכולות יסוד"
     }
   ];
   
@@ -89,63 +89,81 @@ function VideoViewer() {
           </div>
 
           {/* Video Grid */}
+{/* Video Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8" dir="rtl">
             {videos.map((video, idx) => (
               <div
                 key={idx}
                 className="relative group cursor-pointer"
+                onClick={() => setExpandedVideo(idx)}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
                 <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-blue-200 transition-all">
-                  {expandedVideo === idx ? (
-                    <div 
-                      className="w-full"
-                      onClick={() => setExpandedVideo(null)}
-                    >
-                      <div className="aspect-video">
-                        <iframe
-                          src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
-                          title={video.title}
-                          className="w-full h-full"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        />
-                      </div>
-                      <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-white">
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">{video.title}</h3>
-                        <p className="text-sm sm:text-base text-gray-600">{video.subtitle}</p>
-                        <p className="text-xs text-blue-600 mt-2">לחץ לסגירה</p>
+                  <div className="aspect-video relative overflow-hidden">
+                    <img
+                      src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                      alt={video.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="bg-white rounded-full p-5 shadow-xl group-hover:scale-110 transition-transform">
+                        <svg className="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
                       </div>
                     </div>
-                  ) : (
-                    <div onClick={() => setExpandedVideo(idx)}>
-                      <div className="aspect-video relative overflow-hidden">
-                        <img
-                          src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
-                          alt={video.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="bg-white rounded-full p-5 shadow-xl group-hover:scale-110 transition-transform">
-                            <svg className="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M8 5v14l11-7z"/>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-white">
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">{video.title}</h3>
-                        <p className="text-sm sm:text-base text-gray-600">{video.subtitle}</p>
-                      </div>
-                    </div>
-                  )}
+                  </div>
+                  <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-white">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">{video.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-600">{video.subtitle}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-        </div>
 
+          {/* Fullscreen Video Modal */}
+          {expandedVideo !== null && (
+            <div 
+              className="fixed inset-0 z-50 bg-black bg-opacity-95 flex items-center justify-center p-4"
+              onClick={() => setExpandedVideo(null)}
+            >
+              <div 
+                className="relative w-full max-w-6xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setExpandedVideo(null)}
+                  className="absolute -top-12 right-0 text-white hover:text-blue-400 transition-colors"
+                  aria-label="Close video"
+                >
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                
+                {/* Video Container */}
+                <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${videos[expandedVideo].id}?autoplay=1`}
+                    title={videos[expandedVideo].title}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                
+                {/* Video Info */}
+                <div className="mt-4 text-center" dir="rtl">
+                  <h3 className="text-2xl font-bold text-white mb-2">{videos[expandedVideo].title}</h3>
+                  <p className="text-lg text-gray-300">{videos[expandedVideo].subtitle}</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
         {/* Background bottom */}
         <div
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"

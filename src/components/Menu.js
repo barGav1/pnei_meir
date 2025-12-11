@@ -30,14 +30,14 @@ export default function Menu() {
           >
             בית
           </a>
-
+{/*
           <a
             href="/about"
             className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
           >
             עלינו
           </a>
-
+*/}
           <a
             href="https://www.matara.pro/nedarimplus/online/?mosad=7001770"
             target="_blank"
@@ -94,15 +94,14 @@ export default function Menu() {
             >
               בית
             </a>
-
-            <a
+{/*            <a
               href="/about"
               className="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors font-medium rounded-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               עלינו
             </a>
-
+*/}
             <a
               href="https://www.matara.pro/nedarimplus/online/?mosad=7001770"
               target="_blank"
