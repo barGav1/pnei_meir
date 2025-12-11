@@ -7,7 +7,7 @@ function VideoViewer() {
     { 
       id: "1Ji44bkbvDU",
       title: "דבר מנהל המוסד",
-      subtitle: "חזון ההובלה חינוכית במוסדות"
+      subtitle: "חזון ההובלה החינוכית במוסדות"
     },
     { 
       id: "TAbhqm0QhxU",
@@ -162,6 +162,42 @@ function VideoViewer() {
               </div>
             </div>
           )}
+        </div>
+        <div className="max-w-7xl mx-auto mt-10 mb-20 px-4">
+          <div className="relative bg-gradient-to-br from-blue-100 to-blue-50 
+                          border border-blue-200 rounded-3xl 
+                          p-10 sm:p-14 shadow-xl 
+                          text-center overflow-hidden" 
+              dir="rtl">
+
+            {/* Floating shapes */}
+            <div className="absolute -top-16 -left-16 w-40 h-40 bg-blue-300 rounded-full opacity-30 blur-3xl"></div>
+            <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-blue-400 rounded-full opacity-30 blur-3xl"></div>
+
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              מעוניינים שנציג יחזור אליכם?
+            </h2>
+
+            <p className="text-lg sm:text-xl mb-8 text-gray-700 leading-relaxed">
+פני מאיר פתוחים לכל המעוניינים להעמיק בלימוד התורה ולצמוח רוחנית נשמח לספק מידע נוסף ולענות על כל שאלה. 
+            </p>
+
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScQFW3ewsgnaQjzTx197DSGirfuoV2P3xyGf5VOXyi3vTl9Ag/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-4 bg-blue-600 hover:bg-blue-700 
+                        text-white text-lg font-bold rounded-full 
+                        shadow-lg hover:shadow-2xl 
+                        transition-all transform hover:-translate-y-1"
+            >
+              מעבר לטופס יצירת קשר
+            </a>
+
+            <p className="font-semibold text-gray-700 mt-8">
+              מוסדות פני מאיר — מרכז תורני מוביל בישראל
+            </p>
+          </div>
         </div>
         {/* Background bottom */}
         <div
