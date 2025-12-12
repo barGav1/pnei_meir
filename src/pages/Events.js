@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Menu from "../components/Menu";
 import opendayImage from "../stuff/openday.jpg";
-
+import hagitHanuca from "../stuff/hagitHanuca.jpg"
 // Sample flyer data - replace with your actual data source
 const flyersData = [
   {
     id: 1,
+    image: hagitHanuca,
+    title: "הרבנית חגית שירה חנוכה",
+    uploadDate: "2025-12-12", // YYYY-MM-DD format
+    eventDate: "2025-12-17"
+  },
+  {
+    id: 2,
     image: opendayImage,
     title: "יום פתוח במוסדות פני מאיר",
-    uploadDate: "2025-12-12", // YYYY-MM-DD format
+    uploadDate: "2025-12-12", 
     eventDate: "2025-12-26"
   }
 ];
