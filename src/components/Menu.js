@@ -39,6 +39,13 @@ export default function Menu() {
           </a>
 */}
           <a
+            href="/events"
+            className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-md hover:shadow-lg transform hover:scale-105"
+          >
+            אירועים בקהילה
+          </a>
+
+          <a
             href="https://www.matara.pro/nedarimplus/online/?mosad=7001770"
             target="_blank"
             rel="noopener noreferrer"
@@ -102,6 +109,14 @@ export default function Menu() {
               עלינו
             </a>
 */}
+            <a
+              href="/events"
+              className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-md text-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              אירועים בקהילה
+            </a>
+
             <a
               href="https://www.matara.pro/nedarimplus/online/?mosad=7001770"
               target="_blank"
