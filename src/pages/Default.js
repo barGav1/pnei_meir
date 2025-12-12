@@ -265,8 +265,6 @@ function VideoViewer() {
 
             <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-700 leading-relaxed">
               מוסדות פני מאיר פתוחים לכל המעוניינים להעמיק בלימוד התורה ולצמוח רוחנית.  
-              <br/>
-              אנו מזמינים כל אדם המבקש להתקרב לערכי התורה ולהתחזק רוחנית להצטרף אלינו.
             </p>
 
             <a
